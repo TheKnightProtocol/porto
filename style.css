@@ -1,126 +1,61 @@
-/* General Reset */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0a0a0a;
-  color: #fff;
-  scroll-behavior: smooth;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: #111;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-.nav-links li a {
-  color: #00e5ff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-.nav-links li a:hover { color: #ff0077; }
-.logo { font-size: 1.5rem; font-weight: bold; color: #00e5ff; }
-
-/* Hero Section */
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 80vh;
-  text-align: center;
-  position: relative;
-  background: #000;
-}
-.glow-text {
-  font-size: 3rem;
-  color: #00e5ff;
-  text-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff, 0 0 30px #00e5ff;
-}
-.subtitle { color: #ccc; margin-bottom: 20px; }
-.bat-button {
-  text-decoration: none;
-  padding: 10px 25px;
-  background: #00e5ff;
-  color: #000;
-  font-weight: bold;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-}
-.bat-button:hover { background: #ff0077; color: #fff; }
-
-/* Section Titles */
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #00e5ff;
-  text-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff;
-}
-
-/* Skills */
-.skills-list { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; list-style: none; justify-content: center; }
-.skills-list li { background: #111; padding: 8px 15px; border-radius: 8px; color: #00e5ff; }
+/* ... (keep everything from before) ... */
 
 /* Timeline */
-.timeline { display: flex; flex-direction: column; gap: 20px; }
-.timeline-item { display: flex; gap: 15px; }
-.timeline-dot { width: 12px; height: 12px; background: #00e5ff; border-radius: 50%; margin-top: 8px; }
-.timeline-content h3 { margin: 0; color: #00e5ff; }
-
-/* Projects */
-.project-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-.project-card { background: #111; padding: 20px; border-radius: 12px; width: 250px; transition: all 0.3s ease; }
-.project-card:hover { box-shadow: 0 0 15px #ff0077; }
-.project-links a { color: #00e5ff; text-decoration: none; }
-.project-links a:hover { color: #ff0077; text-decoration: underline; }
-
-/* Contact Cards */
-.contact-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+.timeline {
+  position: relative;
+  margin: 40px 0;
+  padding-left: 40px;
+  border-left: 3px solid var(--accent);
 }
-.contact-card {
-  background: #111;
-  border: 2px solid #00e5ff;
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -11px;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--accent);
+  animation: pulseDot 2s infinite;
+}
+
+.timeline-content {
+  background: #111119;
+  border: 1px solid var(--accent);
   border-radius: 12px;
-  padding: 20px 30px;
-  width: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 0 10px #00e5ff40;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,229,255,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.contact-card span { font-size: 1.5rem; }
-.contact-card a {
-  color: #00e5ff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-.contact-card:hover {
-  background: #00e5ff10;
-  border-color: #ff0077;
-  box-shadow: 0 0 20px #ff0077, 0 0 40px #ff0077;
-}
-.contact-card:hover a { color: #ff0077; text-decoration: underline; }
-.contact-note { margin-top: 25px; font-style: italic; color: #aaa; }
 
-/* Footer */
-footer { text-align: center; padding: 15px; background: #111; color: #666; }
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px var(--accent);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  color: var(--accent);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.timeline-content ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+.timeline-content ul li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 5px var(--accent); }
+  50% { box-shadow: 0 0 20px var(--accent); }
+  100% { box-shadow: 0 0 5px var(--accent); }
+}
