@@ -194,6 +194,15 @@ section {
   box-shadow: 0 0 25px var(--accent);
 }
 
+.exp-card ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+.exp-card ul li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
