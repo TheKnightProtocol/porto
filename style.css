@@ -569,7 +569,7 @@ footer {
 
 /* DSA Section Styles */
 #dsa {
-  background-color: #0a0a0f; /* dark Gotham background */
+  background-color: var(--bg); /* matches main background */
   color: #ffffff;
   padding: 60px 20px;
   text-align: center;
@@ -578,7 +578,7 @@ footer {
 #dsa .section-title {
   font-family: 'Orbitron', sans-serif;
   font-size: 2rem;
-  color: #00e5ff;
+  color: var(--accent); /* dynamic accent color */
   margin-bottom: 20px;
 }
 
@@ -600,7 +600,7 @@ footer {
 }
 
 #dsa .dsa-links li a {
-  color: #00e5ff;
+  color: var(--accent); /* dynamic accent color */
   font-weight: bold;
   text-decoration: none;
   font-family: 'Rajdhani', sans-serif;
@@ -611,5 +611,5 @@ footer {
 
 #dsa .dsa-links li a:hover {
   color: #ffffff;
-  border-bottom: 2px solid #00e5ff;
+  border-bottom: 2px solid var(--accent); /* dynamic accent color */
 }
