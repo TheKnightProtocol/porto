@@ -8,12 +8,17 @@
   --text: #e0e0e0;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Rajdhani', sans-serif;
   line-height: 1.6;
-  margin: 0;
   scroll-behavior: smooth;
 }
 
@@ -22,7 +27,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(5, 5, 10, 0.9);
+  background: rgba(5,5,10,0.9);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,8 +39,9 @@ body {
 .navbar .logo {
   font-family: 'Orbitron', sans-serif;
   color: var(--accent);
-  font-size: 1.2rem;
-  text-shadow: 0 0 8px var(--accent);
+  font-size: 1.3rem;
+  text-shadow: 0 0 10px var(--accent);
+  cursor: pointer;
 }
 
 .navbar .nav-links {
@@ -48,10 +54,12 @@ body {
   color: var(--text);
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
+  transition: color 0.3s, transform 0.3s;
 }
+
 .navbar .nav-links a:hover {
   color: var(--accent);
+  transform: scale(1.05);
 }
 
 .resume-btn {
@@ -61,12 +69,14 @@ body {
   color: var(--accent);
   text-decoration: none;
   font-weight: bold;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
+
 .resume-btn:hover {
   background: var(--accent);
   color: var(--bg);
-  box-shadow: 0 0 10px var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  transform: scale(1.05);
 }
 
 /* Hero Section */
@@ -84,21 +94,21 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.75);
 }
 
 .hero h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 3.5rem;
-  z-index: 2;
   color: var(--accent);
   text-shadow: 0 0 20px var(--accent);
+  z-index: 2;
 }
 
 .subtitle {
-  z-index: 2;
-  margin-top: 10px;
   font-size: 1.3rem;
+  margin-top: 10px;
+  z-index: 2;
 }
 
 .bat-button {
@@ -109,13 +119,15 @@ body {
   text-decoration: none;
   font-weight: bold;
   border-radius: 8px;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   z-index: 2;
 }
+
 .bat-button:hover {
   background: var(--accent);
   color: var(--bg);
-  box-shadow: 0 0 20px var(--accent);
+  box-shadow: 0 0 25px var(--accent);
+  transform: scale(1.05);
 }
 
 /* Bat-Signal Beam */
@@ -126,7 +138,7 @@ body {
   left: 50%;
   width: 300px;
   height: 100%;
-  background: radial-gradient(circle, rgba(0,229,255,0.2) 0%, transparent 80%);
+  background: radial-gradient(circle, rgba(0,229,255,0.15) 0%, transparent 80%);
   transform: translateX(-50%) rotate(-20deg);
   animation: beamGlow 4s infinite alternate;
   pointer-events: none;
@@ -144,11 +156,9 @@ body {
   padding: 20px;
   border: 2px solid var(--accent);
   border-radius: 12px;
-  background: rgba(17, 17, 25, 0.85);
+  background: rgba(17,17,25,0.85);
   box-shadow: 0 0 20px var(--accent);
   text-align: center;
-  z-index: 10;
-  position: relative;
   animation: glowPulse 3s infinite alternate;
 }
 
@@ -156,12 +166,11 @@ body {
   margin: 8px 0;
   font-size: 1.1rem;
   font-weight: bold;
-  color: var(--text);
 }
 
 @keyframes glowPulse {
   from { box-shadow: 0 0 15px var(--accent); }
-  to   { box-shadow: 0 0 35px var(--accent); }
+  to { box-shadow: 0 0 35px var(--accent); }
 }
 
 /* Sections */
@@ -182,28 +191,30 @@ section {
 .highlight { color: var(--highlight); }
 
 /* Cards */
-.exp-card, .project-card {
+.exp-card, .project-card, .timeline-content {
   background: #111119;
   border: 1px solid var(--accent);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.exp-card:hover, .project-card:hover {
+
+.exp-card:hover, .project-card:hover, .timeline-content:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 25px var(--accent);
 }
 
-.exp-card ul {
+.exp-card ul, .timeline-content ul {
   margin-top: 10px;
   padding-left: 20px;
 }
-.exp-card ul li {
+
+.exp-card ul li, .timeline-content ul li {
   margin-bottom: 8px;
-  color: var(--text);
 }
 
+/* Project Grid */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -215,6 +226,7 @@ section {
   display: flex;
   gap: 10px;
 }
+
 .project-links a {
   flex: 1;
   text-align: center;
@@ -224,11 +236,13 @@ section {
   text-decoration: none;
   color: var(--accent);
   font-weight: bold;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
+
 .project-links a:hover {
   background: var(--accent);
   color: var(--bg);
+  transform: scale(1.05);
 }
 
 /* Skills */
@@ -238,6 +252,7 @@ section {
   gap: 12px;
   justify-content: center;
 }
+
 .skills-list li {
   list-style: none;
   padding: 10px 18px;
@@ -246,14 +261,15 @@ section {
   border: 1px solid var(--accent);
   color: var(--accent);
   font-weight: bold;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
   box-shadow: 0 0 8px rgba(0,229,255,0.2);
 }
+
 .skills-list li:hover {
   background: var(--accent);
   color: var(--bg);
   box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent);
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 /* Contact & Socials */
@@ -262,13 +278,18 @@ section {
   justify-content: center;
   gap: 15px;
 }
+
 .socials a {
   color: var(--accent);
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
+  transition: color 0.3s ease, transform 0.3s;
 }
-.socials a:hover { color: var(--highlight); }
+
+.socials a:hover {
+  color: var(--highlight);
+  transform: scale(1.1);
+}
 
 /* Footer */
 footer {
@@ -289,6 +310,7 @@ footer {
   gap: 10px;
   z-index: 2000;
 }
+
 .color-option {
   width: 25px;
   height: 25px;
@@ -296,11 +318,12 @@ footer {
   cursor: pointer;
   border: 2px solid white;
   box-shadow: 0 0 8px rgba(255,255,255,0.4);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .color-option:hover {
   transform: scale(1.2);
-  box-shadow: 0 0 12px white;
+  box-shadow: 0 0 14px white;
 }
 
 /* Particle Background */
@@ -311,7 +334,6 @@ footer {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: transparent;
 }
 
 /* Timeline */
@@ -320,11 +342,6 @@ footer {
   margin: 40px 0;
   padding-left: 40px;
   border-left: 3px solid var(--accent);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 40px;
 }
 
 .timeline-dot {
@@ -336,45 +353,13 @@ footer {
   background: var(--accent);
   border-radius: 50%;
   box-shadow: 0 0 15px var(--accent);
-  animation: pulseDot 2s infinite;
-}
-
-.timeline-content {
-  background: #111119;
-  border: 1px solid var(--accent);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(0,229,255,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px var(--accent);
-}
-
-.timeline-content h3 {
-  margin-top: 0;
-  color: var(--accent);
-  font-family: 'Orbitron', sans-serif;
-}
-
-.timeline-content ul {
-  margin-top: 10px;
-  padding-left: 20px;
-}
-.timeline-content ul li {
-  margin-bottom: 8px;
-  color: var(--text);
+  animation: pulseDot 2s infinite ease-in-out;
 }
 
 @keyframes pulseDot {
-  0% { box-shadow: 0 0 5px var(--accent); }
+  0%,100% { box-shadow: 0 0 5px var(--accent); }
   50% { box-shadow: 0 0 20px var(--accent); }
-  100% { box-shadow: 0 0 5px var(--accent); }
 }
-
-
 
 /* Puzzle Modal */
 .modal {
@@ -386,7 +371,7 @@ footer {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0,0,0,0.95);
 }
 
 .modal-content {
@@ -400,6 +385,7 @@ footer {
   text-align: center;
   color: var(--text);
   box-shadow: 0 0 25px var(--accent);
+  transition: all 0.3s ease;
 }
 
 .modal-content .close {
@@ -408,10 +394,12 @@ footer {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s;
 }
 
 .modal-content .close:hover {
   color: var(--highlight);
+  transform: scale(1.2);
 }
 
 /* Tic-Tac-Toe Board */
@@ -432,12 +420,13 @@ footer {
   justify-content: center;
   font-size: 2rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .cell:hover {
   background: var(--accent);
   color: var(--bg);
+  transform: scale(1.1);
 }
 
 #resetBtn {
@@ -449,9 +438,11 @@ footer {
   color: var(--accent);
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
+
 #resetBtn:hover {
   background: var(--accent);
   color: var(--bg);
+  transform: scale(1.05);
 }
-
