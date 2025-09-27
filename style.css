@@ -1,7 +1,7 @@
 /* Gotham Futuristic Portfolio Theme */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;700&display=swap');
 
-:root {
+:root { 
   --bg: #0a0a0f;
   --accent: #00e5ff; /* Default accent */
   --highlight: #ff0077;
