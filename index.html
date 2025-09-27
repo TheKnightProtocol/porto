@@ -270,5 +270,25 @@
   <!-- Scroll to Top Button -->
 <button id="scrollTopBtn" title="Go to top">↑</button>
 
+  <!-- Message Modal Trigger -->
+<div class="message-box">
+  <button id="openMessageBtn" class="bat-button">💬 Send Me a Message</button>
+</div>
+
+<!-- Message Modal -->
+<div id="messageModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Send Me a Message</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="messageForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p id="formResponse"></p>
+  </div>
+</div>
+
 </body>
 </html>
