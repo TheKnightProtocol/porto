@@ -1,314 +1,158 @@
-/* Gotham Futuristic Portfolio Theme */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Rajdhani:wght@400;700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Knight Protocol | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🦇 The Knight Protocol</div>
+    <ul class="nav-links">
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="AI.pdf" target="_blank" class="resume-btn">Download Resume</a>
+  </nav>
 
-:root {
-  --bg: #0a0a0f;
-  --accent: #00e5ff; /* Default accent */
-  --highlight: #ff0077;
-  --text: #e0e0e0;
-}
+  <!-- Color Theme Picker -->
+  <div class="color-picker">
+    <span class="color-option" data-color="#00e5ff" style="background:#00e5ff;"></span>
+    <span class="color-option" data-color="#39ff14" style="background:#39ff14;"></span>
+    <span class="color-option" data-color="#b026ff" style="background:#b026ff;"></span>
+    <span class="color-option" data-color="#ff7b00" style="background:#ff7b00;"></span>
+    <span class="color-option" data-color="#ff0077" style="background:#ff0077;"></span>
+  </div>
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Rajdhani', sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  scroll-behavior: smooth;
-}
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <h1 class="glow-text">The Knight Protocol</h1>
+    <p class="subtitle">AI/ML Engineer • Generative AI • Futuristic Innovator</p>
+    <a href="#summary" class="bat-button">Explore the Shadows</a>
+  </header>
 
-/* Navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(5, 5, 10, 0.9);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 30px;
-  z-index: 1000;
-  border-bottom: 1px solid var(--accent);
-}
+  <!-- Recruiter Highlight Box -->
+  <section class="highlight-box">
+    <div class="highlight-content">
+      <p><strong>AI/ML Engineer</strong> | Generative AI • LLMs • NLP</p>
+      <p>🚀 Internship @ Indian Space Academy • 🎓 B.Tech (AI/ML), CGPA 8.6</p>
+      <p>🏆 Microsoft GenAI Certified • Deloitte & Accenture Virtual Experiences</p>
+    </div>
+  </section>
 
-.navbar .logo {
-  font-family: 'Orbitron', sans-serif;
-  color: var(--accent);
-  font-size: 1.2rem;
-  text-shadow: 0 0 8px var(--accent);
-}
+  <!-- Summary -->
+  <section id="summary">
+    <h2 class="section-title">🦇 Summary</h2>
+    <p>
+      Aspiring <span class="highlight">AI/ML Engineer</span> specializing in
+      <strong>Generative AI, LLMs, and NLP</strong> with hands-on experience
+      building end-to-end ML pipelines. Skilled in <strong>Python, SQL,
+      TensorFlow, PyTorch</strong> and proficient in deploying scalable,
+      production-ready AI solutions using <strong>MLOps and Cloud</strong>.
+    </p>
+  </section>
 
-.navbar .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="section-title">⚡ Skills</h2>
+    <ul class="skills-list">
+      <li>Python</li>
+      <li>SQL</li>
+      <li>Java</li>
+      <li>C++</li>
+      <li>Machine Learning</li>
+      <li>Deep Learning</li>
+      <li>NLP</li>
+      <li>LLMs</li>
+      <li>Generative AI</li>
+      <li>TensorFlow</li>
+      <li>PyTorch</li>
+      <li>Streamlit</li>
+      <li>Docker</li>
+      <li>AWS</li>
+      <li>Azure</li>
+      <li>GCP</li>
+      <li>Power BI</li>
+    </ul>
+  </section>
 
-.navbar .nav-links a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-.navbar .nav-links a:hover {
-  color: var(--accent);
-}
+  <!-- Experience -->
+  <section id="experience">
+    <h2 class="section-title">💼 Experience</h2>
+    <div class="exp-card">
+      <h3>Indian Space Academy – Intern</h3>
+      <p><em>June 2025 – July 2025 | Remote</em></p>
+      <p>
+        Built <strong>end-to-end ML pipelines</strong> for 100K+ satellite
+        records with <strong>Python, SQL, TensorFlow, PyTorch</strong>. Delivered
+        production-ready AI solutions and automated KPI dashboards.
+      </p>
+    </div>
+  </section>
 
-.resume-btn {
-  padding: 8px 16px;
-  border: 2px solid var(--accent);
-  border-radius: 6px;
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s;
-}
-.resume-btn:hover {
-  background: var(--accent);
-  color: var(--bg);
-  box-shadow: 0 0 10px var(--accent);
-}
+  <!-- Projects -->
+  <section id="projects">
+    <h2 class="section-title">💻 Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>SentinelX</h3>
+        <p>Analyzed 7,000+ telecom customers with Python & SQL for churn prediction.</p>
+        <div class="project-links">
+          <a href="https://github.com/THEKNIGHTPROTOCOL/SentinelX" target="_blank">GitHub</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>EchoLogic</h3>
+        <p>Built a Voice-to-Docs pipeline using Faster-Whisper + GPT + Streamlit.</p>
+        <div class="project-links">
+          <a href="https://github.com/THEKNIGHTPROTOCOL/EchoLogic" target="_blank">GitHub</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>NeuroSync-AI</h3>
+        <p>Real-time BCI with EEG signals & TensorFlow for cognitive state detection.</p>
+        <div class="project-links">
+          <a href="https://github.com/TheKnightProtocol/NeuroSync-AI" target="_blank">GitHub</a>
+          <a href="#" target="_blank">Live Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* Hero */
-.hero {
-  height: 100vh;
-  background: url("https://i.ibb.co/3rGbH3c/gotham-skyline.jpg") no-repeat center/cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-}
+  <!-- Education -->
+  <section id="education">
+    <h2 class="section-title">🎓 Education</h2>
+    <p><strong>B.Tech. Computer Science (AI/ML)</strong></p>
+    <p>Dronacharya College of Engineering | CGPA: 8.6 / 10 | Graduated 2027</p>
+  </section>
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-}
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="section-title">📨 Contact</h2>
+    <ul class="socials">
+      <li><a href="mailto:SankalpAIera@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/sankalp-sharma-6342532b4" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/TheKnightProtocol" target="_blank">GitHub</a></li>
+      <li><a href="https://leetcode.com/u/THEKNIGHTPROTOCOL/" target="_blank">LeetCode</a></li>
+    </ul>
+  </section>
 
-.hero h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3.5rem;
-  z-index: 2;
-  color: var(--accent);
-  text-shadow: 0 0 20px var(--accent);
-}
+  <footer>
+    <p>© 2025 The Knight Protocol | Gotham-inspired Portfolio</p>
+  </footer>
 
-.subtitle {
-  z-index: 2;
-  margin-top: 10px;
-  font-size: 1.3rem;
-}
+  <!-- Particle Background -->
+  <canvas id="particle-canvas"></canvas>
 
-.bat-button {
-  margin-top: 20px;
-  padding: 14px 28px;
-  border: 2px solid var(--accent);
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: all 0.3s;
-  z-index: 2;
-}
-.bat-button:hover {
-  background: var(--accent);
-  color: var(--bg);
-  box-shadow: 0 0 20px var(--accent);
-}
-
-/* Bat-Signal Beam */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 300px;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0,229,255,0.2) 0%, transparent 80%);
-  transform: translateX(-50%) rotate(-20deg);
-  animation: beamGlow 4s infinite alternate;
-  pointer-events: none;
-}
-@keyframes beamGlow {
-  0% { opacity: 0.2; transform: translateX(-50%) rotate(-20deg); }
-  100% { opacity: 0.6; transform: translateX(-50%) rotate(-25deg); }
-}
-
-/* Recruiter Highlight Box */
-.highlight-box {
-  max-width: 1000px;
-  margin: -40px auto 40px;
-  padding: 20px;
-  border: 2px solid var(--accent);
-  border-radius: 12px;
-  background: rgba(17, 17, 25, 0.85);
-  box-shadow: 0 0 20px var(--accent);
-  text-align: center;
-  z-index: 10;
-  position: relative;
-  animation: glowPulse 3s infinite alternate;
-}
-
-.highlight-content p {
-  margin: 8px 0;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: var(--text);
-}
-
-@keyframes glowPulse {
-  from { box-shadow: 0 0 15px var(--accent); }
-  to   { box-shadow: 0 0 35px var(--accent); }
-}
-
-/* Sections */
-section {
-  padding: 90px 20px 50px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.section-title {
-  font-size: 2.2rem;
-  margin-bottom: 25px;
-  text-align: center;
-  color: var(--accent);
-  text-shadow: 0 0 12px var(--accent);
-}
-
-.highlight { color: var(--highlight); }
-
-/* Cards */
-.exp-card, .project-card {
-  background: #111119;
-  border: 1px solid var(--accent);
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.exp-card:hover, .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px var(--accent);
-}
-
-.exp-card ul {
-  margin-top: 10px;
-  padding-left: 20px;
-}
-.exp-card ul li {
-  margin-bottom: 8px;
-  color: var(--text);
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.project-links {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-}
-.project-links a {
-  flex: 1;
-  text-align: center;
-  padding: 8px;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  text-decoration: none;
-  color: var(--accent);
-  font-weight: bold;
-  transition: all 0.3s;
-}
-.project-links a:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
-
-/* Skills */
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-.skills-list li {
-  list-style: none;
-  padding: 10px 18px;
-  border-radius: 20px;
-  background: #111119;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-weight: bold;
-  transition: all 0.3s;
-  box-shadow: 0 0 8px rgba(0,229,255,0.2);
-}
-.skills-list li:hover {
-  background: var(--accent);
-  color: var(--bg);
-  box-shadow: 0 0 20px var(--accent), 0 0 40px var(--accent);
-  transform: scale(1.05);
-}
-
-/* Contact */
-.socials {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-.socials a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-.socials a:hover { color: var(--highlight); }
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #050507;
-  color: #777;
-  font-size: 0.9rem;
-}
-
-/* Color Picker */
-.color-picker {
-  position: fixed;
-  top: 100px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 2000;
-}
-.color-option {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid white;
-  box-shadow: 0 0 8px rgba(255,255,255,0.4);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.color-option:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 12px white;
-}
-
-/* Particle Background */
-#particle-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: transparent;
-}
+  <script src="script.js"></script>
+</body>
+</html>
