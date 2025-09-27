@@ -194,6 +194,15 @@ section {
   box-shadow: 0 0 25px var(--accent);
 }
 
+.exp-card ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+.exp-card ul li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -303,3 +312,66 @@ footer {
   z-index: -1;
   background: transparent;
 }
+
+/* ... (keep everything from before) ... */
+
+/* Timeline */
+.timeline {
+  position: relative;
+  margin: 40px 0;
+  padding-left: 40px;
+  border-left: 3px solid var(--accent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -11px;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--accent);
+  animation: pulseDot 2s infinite;
+}
+
+.timeline-content {
+  background: #111119;
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,229,255,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px var(--accent);
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  color: var(--accent);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.timeline-content ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+.timeline-content ul li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 5px var(--accent); }
+  50% { box-shadow: 0 0 20px var(--accent); }
+  100% { box-shadow: 0 0 5px var(--accent); }
+}
+
