@@ -1,137 +1,190 @@
-// =========================
-// Particle Background
-// =========================
-const canvas = document.getElementById("particle-canvas");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Knight Protocol | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🦇 The Knight Protocol</div>
+    <ul class="nav-links">
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-let particles = [];
-for (let i = 0; i < 100; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 2 + 1,
-    dx: (Math.random() - 0.5) * 1,
-    dy: (Math.random() - 0.5) * 1,
-  });
-}
+    <!-- Language Selector -->
+    <select id="language-selector" class="lang-dropdown">
+      <option value="en" selected>🇺🇸 English</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="fr">🇫🇷 Français</option>
+      <option value="de">🇩🇪 Deutsch</option>
+      <option value="zh">🇨🇳 中文</option>
+    </select>
 
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue("--accent");
-  particles.forEach((p) => {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fill();
+    <a href="AI.pdf" target="_blank" class="resume-btn">Download Resume</a>
+  </nav>
 
-    p.x += p.dx;
-    p.y += p.dy;
+  <!-- Color Theme Picker -->
+  <div class="color-picker">
+    <span class="color-option" data-color="#00e5ff" style="background:#00e5ff;"></span>
+    <span class="color-option" data-color="#39ff14" style="background:#39ff14;"></span>
+    <span class="color-option" data-color="#b026ff" style="background:#b026ff;"></span>
+    <span class="color-option" data-color="#ff7b00" style="background:#ff7b00;"></span>
+    <span class="color-option" data-color="#ff0077" style="background:#ff0077;"></span>
+  </div>
 
-    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-  });
-  requestAnimationFrame(animateParticles);
-}
-animateParticles();
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <h1 class="glow-text">The Knight Protocol</h1>
+    <p class="subtitle">AI/ML Engineer • Generative AI • Futuristic Innovator</p>
+    <a href="#summary" class="bat-button">Explore the Shadows</a>
+  </header>
 
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
+  <!-- Recruiter Highlight Box -->
+  <section class="highlight-box">
+    <div class="highlight-content">
+      <p><strong>AI/ML Engineer</strong> | Generative AI • LLMs • NLP</p>
+      <p>🚀 Internship @ Indian Space Academy • 🎓 B.Tech (AI/ML), CGPA 8.6</p>
+      <p>🏆 Microsoft GenAI Certified • Deloitte & Accenture Virtual Experiences</p>
+    </div>
+  </section>
 
-// =========================
-// Theme Color Switcher
-// =========================
-const root = document.documentElement;
-const savedColor = localStorage.getItem("themeColor");
-if (savedColor) {
-  root.style.setProperty("--accent", savedColor);
-}
+  <!-- Summary -->
+  <section id="summary">
+    <h2 class="section-title">🦇 Summary</h2>
+    <p id="summary-text">
+      Aspiring <span class="highlight">AI/ML Engineer</span> specializing in
+      <strong>Generative AI, LLMs, and NLP</strong> with hands-on experience
+      building end-to-end ML pipelines. Skilled in <strong>Python, SQL,
+      TensorFlow, PyTorch</strong> and proficient in deploying scalable,
+      production-ready AI solutions using <strong>MLOps and Cloud</strong>.
+    </p>
+  </section>
 
-document.querySelectorAll(".color-option").forEach(option => {
-  option.addEventListener("click", () => {
-    const newColor = option.getAttribute("data-color");
-    root.style.setProperty("--accent", newColor);
-    localStorage.setItem("themeColor", newColor);
-  });
-});
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="section-title">⚡ Skills</h2>
+    <ul class="skills-list">
+      <li>Python</li><li>SQL</li><li>Java</li><li>C++</li>
+      <li>Machine Learning</li><li>Deep Learning</li><li>NLP</li>
+      <li>LLMs</li><li>Generative AI</li><li>TensorFlow</li>
+      <li>PyTorch</li><li>Streamlit</li><li>Docker</li>
+      <li>AWS</li><li>Azure</li><li>GCP</li><li>Power BI</li>
+    </ul>
+  </section>
 
-// =========================
-// Language Translations
-// =========================
-const translations = {
-  en: {
-    summaryTitle: "🦇 Summary",
-    summaryText: "Aspiring AI/ML Engineer specializing in Generative AI, LLMs, and NLP...",
-    skillsTitle: "⚡ Skills",
-    experienceTitle: "💼 Experience",
-    projectsTitle: "💻 Projects",
-    educationTitle: "🎓 Education",
-    contactTitle: "📨 Contact",
-  },
-  es: {
-    summaryTitle: "🦇 Resumen",
-    summaryText: "Aspirante a Ingeniero de IA/ML especializado en Generative AI, LLMs y NLP...",
-    skillsTitle: "⚡ Habilidades",
-    experienceTitle: "💼 Experiencia",
-    projectsTitle: "💻 Proyectos",
-    educationTitle: "🎓 Educación",
-    contactTitle: "📨 Contacto",
-  },
-  fr: {
-    summaryTitle: "🦇 Résumé",
-    summaryText: "Aspirant Ingénieur IA/ML spécialisé en Generative AI, LLMs et NLP...",
-    skillsTitle: "⚡ Compétences",
-    experienceTitle: "💼 Expérience",
-    projectsTitle: "💻 Projets",
-    educationTitle: "🎓 Éducation",
-    contactTitle: "📨 Contact",
-  },
-  de: {
-    summaryTitle: "🦇 Zusammenfassung",
-    summaryText: "Angehender KI/ML-Ingenieur mit Spezialisierung auf Generative AI, LLMs und NLP...",
-    skillsTitle: "⚡ Fähigkeiten",
-    experienceTitle: "💼 Erfahrung",
-    projectsTitle: "💻 Projekte",
-    educationTitle: "🎓 Ausbildung",
-    contactTitle: "📨 Kontakt",
-  },
-  zh: {
-    summaryTitle: "🦇 简介",
-    summaryText: "有志成为AI/ML工程师，专注于生成式AI、大语言模型和自然语言处理...",
-    skillsTitle: "⚡ 技能",
-    experienceTitle: "💼 经历",
-    projectsTitle: "💻 项目",
-    educationTitle: "🎓 教育",
-    contactTitle: "📨 联系方式",
-  }
-};
+  <!-- Experience -->
+  <section id="experience">
+    <h2 class="section-title">💼 Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Indian Space Academy – Intern</h3>
+          <p><em>June 2025 – July 2025 | Remote</em></p>
+          <p>
+            Built <strong>end-to-end ML pipelines</strong> for 100K+ satellite
+            records with <strong>Python, SQL, TensorFlow, PyTorch</strong>.
+            Delivered production-ready AI solutions and automated KPI dashboards.
+          </p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>InternPro – Cybersecurity Intern</h3>
+          <p><em>June 2025 – July 2025 | Remote</em></p>
+          <p><strong>Cybersecurity Threat Analysis</strong> | Tools: Wireshark, Kali Linux, Python, SQL</p>
+          <ul>
+            <li>Monitored network traffic and identified potential threats using <strong>Wireshark</strong>.</li>
+            <li>Conducted vulnerability scanning and penetration testing on simulated systems.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-// =========================
-// Language Switcher
-// =========================
-const langSelector = document.getElementById("language-selector");
+  <!-- Projects -->
+  <section id="projects">
+    <h2 class="section-title">💻 Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>SentinelX</h3>
+        <p>Analyzed 7,000+ telecom customers with Python & SQL for churn prediction.</p>
+        <div class="project-links">
+          <a href="https://github.com/THEKNIGHTPROTOCOL/SentinelX" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>EchoLogic</h3>
+        <p>Built a Voice-to-Docs pipeline using Faster-Whisper + GPT + Streamlit.</p>
+        <div class="project-links">
+          <a href="https://github.com/THEKNIGHTPROTOCOL/EchoLogic" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>NeuroSync-AI</h3>
+        <p>Real-time BCI with EEG signals & TensorFlow for cognitive state detection.</p>
+        <div class="project-links">
+          <a href="https://github.com/TheKnightProtocol/NeuroSync-AI" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-// Load saved language if available
-const savedLang = localStorage.getItem("language");
-if (savedLang && translations[savedLang]) {
-  langSelector.value = savedLang;
-  applyLanguage(savedLang);
-}
+  <!-- Education -->
+  <section id="education">
+    <h2 class="section-title">🎓 Education</h2>
+    <p><strong>B.Tech. Computer Science (AI/ML)</strong></p>
+    <p>Dronacharya College of Engineering | CGPA: 8.6 / 10 | Graduated 2027</p>
+  </section>
 
-langSelector.addEventListener("change", (e) => {
-  const lang = e.target.value;
-  applyLanguage(lang);
-  localStorage.setItem("language", lang);
-});
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="section-title">📨 Contact</h2>
+    <p>If you'd like to collaborate or discuss AI/ML projects, feel free to reach out:</p>
+    
+    <div class="contact-cards">
+      <div class="contact-card">
+        <span>📧</span>
+        <a href="mailto:SankalpAIera@gmail.com">SankalpAIera@gmail.com</a>
+      </div>
+      <div class="contact-card">
+        <span>💼</span>
+        <a href="https://www.linkedin.com/in/sankalp-sharma-6342532b4" target="_blank">LinkedIn</a>
+      </div>
+      <div class="contact-card">
+        <span>🐱</span>
+        <a href="https://github.com/TheKnightProtocol" target="_blank">GitHub</a>
+      </div>
+      <div class="contact-card">
+        <span>🧩</span>
+        <a href="https://leetcode.com/u/THEKNIGHTPROTOCOL/" target="_blank">LeetCode</a>
+      </div>
+      <div class="contact-card">
+        <span>🌐</span>
+        <a href="https://TheKnightProtocol.github.io/myai-portfolio/" target="_blank">Portfolio</a>
+      </div>
+    </div>
+    
+    <p class="contact-note">I usually respond within 24-48 hours. Let's innovate together!</p>
+  </section>
 
-function applyLanguage(lang) {
-  document.querySelector("#summary h2").textContent = translations[lang].summaryTitle;
-  document.querySelector("#summary-text").textContent = translations[lang].summaryText;
-  document.querySelector("#skills h2").textContent = translations[lang].skillsTitle;
-  document.querySelector("#experience h2").textContent = translations[lang].experienceTitle;
-  document.querySelector("#projects h2").textContent = translations[lang].projectsTitle;
-  document.querySelector("#education h2").textContent = translations[lang].educationTitle;
-  document.querySelector("#contact h2").textContent = translations[lang].contactTitle;
-}
+  <footer>
+    <p>© 2025 The Knight Protocol | Gotham-inspired Portfolio</p>
+  </footer>
+
+  <!-- Particle Background -->
+  <canvas id="particle-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
