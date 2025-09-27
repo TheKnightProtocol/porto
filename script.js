@@ -123,7 +123,7 @@ document.querySelectorAll(".color-option").forEach(option => {
 });
 
 // Mobile Navbar Toggle
-const navbar = document.querySelector('.navbar');
+const navbar = document.querySelector('.navbar'); 
 const hamburger = document.createElement('div');
 hamburger.classList.add('hamburger');
 hamburger.innerHTML = '<span></span><span></span><span></span>';
