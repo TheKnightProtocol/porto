@@ -4,6 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Knight Protocol | Portfolio</title>
+
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Portfolio of Sankalp Sharma - AI/ML Engineer, GenAI & LLMs, showcasing projects, skills, and experience.">
+  <meta name="keywords" content="AI, ML, GenAI, LLMs, Python, Deep Learning, Portfolio, Resume, Sankalp Sharma">
+  <meta name="author" content="Sankalp Sharma">
+
+  <meta property="og:title" content="Sankalp Sharma | AI/ML Engineer Portfolio">
+  <meta property="og:description" content="Portfolio showcasing AI/ML, GenAI, LLM projects, skills, and experience.">
+  <meta property="og:image" content="https://i.ibb.co/3rGbH3c/gotham-skyline.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="https://i.ibb.co/3rGbH3c/gotham-skyline.jpg">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -87,7 +99,6 @@
   <section id="experience">
     <h2 class="section-title">💼 Experience</h2>
     <div class="timeline">
-      <!-- Indian Space Academy -->
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
@@ -101,7 +112,6 @@
         </div>
       </div>
 
-      <!-- InternPro -->
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
@@ -109,8 +119,8 @@
           <p><em>June 2025 – July 2025 | Remote</em></p>
           <p><strong>Cybersecurity Threat Analysis</strong> | Tools Used: Wireshark, Kali Linux, Python, SQL</p>
           <ul>
-            <li>Monitored network traffic and identified potential threats using <strong>Wireshark</strong>, enhancing system security awareness.</li>
-            <li>Conducted vulnerability scanning and basic penetration testing on simulated systems, improving security preparedness.</li>
+            <li>Monitored network traffic and identified potential threats using <strong>Wireshark</strong>.</li>
+            <li>Conducted vulnerability scanning and basic penetration testing on simulated systems.</li>
           </ul>
         </div>
       </div>
@@ -166,6 +176,9 @@
     </ul>
   </section>
 
+  <!-- Scroll-to-top Button -->
+  <button id="scrollTopBtn" title="Go to top">⬆️</button>
+
   <footer>
     <p>© 2025 The Knight Protocol | Gotham-inspired Portfolio</p>
   </footer>
@@ -174,5 +187,21 @@
   <canvas id="particle-canvas"></canvas>
 
   <script src="script.js"></script>
+
+  <!-- Phase 3: Scroll-to-top & Google Analytics -->
+  <script>
+    // Scroll-to-top button
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      scrollBtn.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "block" : "none";
+    };
+    scrollBtn.onclick = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
+    // Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); // <-- Replace with your GA4 ID
+  </script>
 </body>
 </html>
