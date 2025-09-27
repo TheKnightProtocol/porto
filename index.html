@@ -278,7 +278,7 @@
 <!-- Message Modal -->
 <div id="messageModal" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <span class="close-message">&times;</span>
     <h2>Send Me a Message</h2>
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="messageForm">
       <input type="text" name="name" placeholder="Your Name" required>
@@ -289,6 +289,58 @@
     <p id="formResponse"></p>
   </div>
 </div>
+
+<script>
+// =========================
+// Message Modal Logic
+// =========================
+const messageModal = document.getElementById("messageModal");
+const openMessageBtn = document.getElementById("openMessageBtn");
+const closeMessageBtn = document.querySelector(".close-message");
+const messageForm = document.getElementById("messageForm");
+const formResponse = document.getElementById("formResponse");
+
+// Open modal
+openMessageBtn.addEventListener("click", () => {
+  messageModal.style.display = "block";
+});
+
+// Close modal (X button)
+closeMessageBtn.addEventListener("click", () => {
+  messageModal.style.display = "none";
+});
+
+// Close modal (click outside)
+window.addEventListener("click", (e) => {
+  if (e.target === messageModal) {
+    messageModal.style.display = "none";
+  }
+});
+
+// Form submission with Formspree
+messageForm.addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const formData = new FormData(messageForm);
+  try {
+    const res = await fetch(messageForm.action, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
+    if (res.ok) {
+      formResponse.textContent = "✅ Message Sent Successfully!";
+      formResponse.style.color = "#39ff14";
+      messageForm.reset();
+    } else {
+      formResponse.textContent = "❌ Error sending message. Try again.";
+      formResponse.style.color = "#ff0077";
+    }
+  } catch (err) {
+    formResponse.textContent = "⚠️ Network error. Please try later.";
+    formResponse.style.color = "#ff0077";
+  }
+});
+</script>
 
 </body>
 </html>
