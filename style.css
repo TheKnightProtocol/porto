@@ -565,3 +565,51 @@ footer {
   from {opacity: 0; transform: scale(0.9);}
   to {opacity: 1; transform: scale(1);}
 }
+
+
+/* DSA Section Styles */
+#dsa {
+  background-color: #0a0a0f; /* dark Gotham background */
+  color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#dsa .section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  color: #00e5ff;
+  margin-bottom: 20px;
+}
+
+#dsa p {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #cfd8dc;
+}
+
+#dsa .dsa-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+#dsa .dsa-links li a {
+  color: #00e5ff;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Rajdhani', sans-serif;
+  transition: 0.3s;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+
+#dsa .dsa-links li a:hover {
+  color: #ffffff;
+  border-bottom: 2px solid #00e5ff;
+}
