@@ -95,7 +95,7 @@
     </ul>
   </section>
 
-  <!-- Experience (Timeline) -->
+  <!-- Experience -->
   <section id="experience">
     <h2 class="section-title">💼 Experience</h2>
     <div class="timeline">
@@ -117,7 +117,7 @@
         <div class="timeline-content">
           <h3>InternPro – Cybersecurity Intern</h3>
           <p><em>June 2025 – July 2025 | Remote</em></p>
-          <p><strong>Cybersecurity Threat Analysis</strong> | Tools Used: Wireshark, Kali Linux, Python, SQL</p>
+          <p><strong>Cybersecurity Threat Analysis</strong> | Tools: Wireshark, Kali Linux, Python, SQL</p>
           <ul>
             <li>Monitored network traffic and identified potential threats using <strong>Wireshark</strong>.</li>
             <li>Conducted vulnerability scanning and basic penetration testing on simulated systems.</li>
@@ -177,7 +177,30 @@
   </section>
 
   <!-- Scroll-to-top Button -->
-  <button id="scrollTopBtn" class="scroll-top-btn" title="Go to top">⬆</button>
+  <button id="scrollTopBtn" class="scroll-top-btn" title="Go to top">⬆️</button>
+
+  <!-- Tic-Tac-Toe Puzzle Modal -->
+  <div id="puzzleModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>🕵️‍♂️ Solve the Tic-Tac-Toe to Reveal the Name!</h2>
+      <div class="tic-tac-toe">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+      </div>
+      <p id="winnerText" style="display:none; font-size:1.2rem; margin-top:15px; color:var(--accent)">
+        🎉 Congratulations! The real name is: <strong>Sankalp</strong>
+      </p>
+      <button id="resetBtn">Reset</button>
+    </div>
+  </div>
 
   <footer>
     <p>© 2025 The Knight Protocol | Gotham-inspired Portfolio</p>
@@ -188,18 +211,60 @@
 
   <script src="script.js"></script>
 
-  <!-- Scroll-to-top JS & Google Analytics -->
+  <!-- Scroll-to-top & Puzzle JS -->
   <script>
+    // Scroll-to-top button
     const scrollBtn = document.getElementById("scrollTopBtn");
     window.onscroll = () => {
       scrollBtn.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "flex" : "none";
     };
     scrollBtn.onclick = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
+    // Google Analytics
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX'); // <-- Replace with your GA4 ID
+    gtag('config', 'G-XXXXXXXXXX');
+
+    // Tic-Tac-Toe Modal
+    const modal = document.getElementById("puzzleModal");
+    const span = document.querySelector(".close");
+    const resetBtn = document.getElementById("resetBtn");
+    const cells = document.querySelectorAll("[data-cell]");
+    const winnerText = document.getElementById("winnerText");
+    let turn = "X";
+
+    function checkWin(player) {
+      const winCombos = [
+        [0,1,2],[3,4,5],[6,7,8],
+        [0,3,6],[1,4,7],[2,5,8],
+        [0,4,8],[2,4,6]
+      ];
+      return winCombos.some(combo => combo.every(i => cells[i].textContent === player));
+    }
+
+    function handleClick(e) {
+      if(e.target.textContent !== "") return;
+      e.target.textContent = turn;
+      if(checkWin(turn)){
+        winnerText.style.display = "block";
+        cells.forEach(cell => cell.removeEventListener("click", handleClick));
+      } else { turn = turn === "X" ? "O" : "X"; }
+    }
+
+    cells.forEach(cell => cell.addEventListener("click", handleClick));
+    resetBtn.addEventListener("click", () => {
+      cells.forEach(cell => cell.textContent = "");
+      winnerText.style.display = "none";
+      turn = "X";
+      cells.forEach(cell => cell.addEventListener("click", handleClick));
+    });
+
+    span.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if(e.target === modal) modal.style.display = "none"; }
+
+    // Open modal on logo double-click
+    document.querySelector('.logo').addEventListener('dblclick', () => modal.style.display = "block");
   </script>
 </body>
 </html>
