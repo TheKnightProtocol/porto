@@ -107,3 +107,51 @@ scrollBtn.addEventListener("click", () => {
 });
 
 
+// =========================
+// Message Modal
+// =========================
+const modal = document.getElementById("messageModal");
+const openBtn = document.getElementById("openMessageBtn");
+const closeBtn = document.querySelector(".modal .close");
+const form = document.getElementById("messageForm");
+const responseBox = document.getElementById("formResponse");
+
+openBtn.addEventListener("click", () => {
+  modal.style.display = "block";
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+// Handle Form Submit
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  try {
+    const res = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" }
+    });
+    if (res.ok) {
+      responseBox.textContent = "✅ Message Sent Successfully!";
+      responseBox.style.color = "#39ff14";
+      form.reset();
+    } else {
+      responseBox.textContent = "❌ Error sending message. Try again.";
+      responseBox.style.color = "#ff0077";
+    }
+  } catch (err) {
+    responseBox.textContent = "⚠️ Network error. Please try later.";
+    responseBox.style.color = "#ff0077";
+  }
+});
+
+
