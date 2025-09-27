@@ -82,7 +82,7 @@ body {
 /* Hero Section */
 .hero {
   height: 100vh;
-  background: url("https://i.ibb.co/3rGbH3c/gotham-skyline.jpg") no-repeat center/cover;
+  background: url("assets/gotham.webp") no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -446,6 +446,7 @@ footer {
   color: var(--bg);
   transform: scale(1.05);
 }
+
 /* Scroll to Top Button */
 #scrollTopBtn {
   position: fixed;
