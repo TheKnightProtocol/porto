@@ -69,7 +69,7 @@ body {
   box-shadow: 0 0 10px var(--accent);
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
   height: 100vh;
   background: url("https://i.ibb.co/3rGbH3c/gotham-skyline.jpg") no-repeat center/cover;
@@ -131,6 +131,7 @@ body {
   animation: beamGlow 4s infinite alternate;
   pointer-events: none;
 }
+
 @keyframes beamGlow {
   0% { opacity: 0.2; transform: translateX(-50%) rotate(-20deg); }
   100% { opacity: 0.6; transform: translateX(-50%) rotate(-25deg); }
@@ -255,7 +256,7 @@ section {
   transform: scale(1.05);
 }
 
-/* Contact */
+/* Contact & Socials */
 .socials {
   display: flex;
   justify-content: center;
@@ -312,8 +313,6 @@ footer {
   z-index: -1;
   background: transparent;
 }
-
-/* ... (keep everything from before) ... */
 
 /* Timeline */
 .timeline {
@@ -374,4 +373,3 @@ footer {
   50% { box-shadow: 0 0 20px var(--accent); }
   100% { box-shadow: 0 0 5px var(--accent); }
 }
-
