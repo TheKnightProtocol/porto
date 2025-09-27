@@ -69,3 +69,15 @@ document.querySelectorAll(".color-option").forEach(option => {
     localStorage.setItem("themeColor", newColor);
   });
 });
+
+// Mobile Navbar Toggle
+const navbar = document.querySelector('.navbar');
+const hamburger = document.createElement('div');
+hamburger.classList.add('hamburger');
+hamburger.innerHTML = '<span></span><span></span><span></span>';
+navbar.appendChild(hamburger);
+
+hamburger.addEventListener('click', () => {
+  navbar.classList.toggle('active');
+});
+
