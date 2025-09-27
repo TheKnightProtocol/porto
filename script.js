@@ -32,58 +32,6 @@ for (let i = 0; i < 80; i++) {
   });
 }
 
-
-
-// Puzzle Modal Logic
-const modal = document.getElementById("puzzleModal");
-const span = document.querySelector(".close");
-const resetBtn = document.getElementById("resetBtn");
-const cells = document.querySelectorAll("[data-cell]");
-const winnerText = document.getElementById("winnerText");
-
-let turn = "X";
-
-function checkWin(player) {
-  const winCombos = [
-    [0,1,2],[3,4,5],[6,7,8],
-    [0,3,6],[1,4,7],[2,5,8],
-    [0,4,8],[2,4,6]
-  ];
-  return winCombos.some(combo => 
-    combo.every(index => cells[index].textContent === player)
-  );
-}
-
-function handleClick(e) {
-  if(e.target.textContent !== "") return;
-  e.target.textContent = turn;
-  
-  if(checkWin(turn)) {
-    winnerText.style.display = "block";
-    cells.forEach(cell => cell.removeEventListener("click", handleClick));
-  } else {
-    turn = turn === "X" ? "O" : "X";
-  }
-}
-
-cells.forEach(cell => cell.addEventListener("click", handleClick));
-
-resetBtn.addEventListener("click", () => {
-  cells.forEach(cell => cell.textContent = "");
-  winnerText.style.display = "none";
-  turn = "X";
-  cells.forEach(cell => cell.addEventListener("click", handleClick));
-});
-
-span.onclick = () => modal.style.display = "none";
-window.onclick = (e) => { if(e.target === modal) modal.style.display = "none"; }
-
-// Optional: Open modal on some fun click (e.g., click your logo)
-document.querySelector('.logo').addEventListener('dblclick', () => {
-  modal.style.display = "block";
-});
-
-
 function animateParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue("--accent");
@@ -121,15 +69,3 @@ document.querySelectorAll(".color-option").forEach(option => {
     localStorage.setItem("themeColor", newColor);
   });
 });
-
-// Mobile Navbar Toggle
-const navbar = document.querySelector('.navbar'); 
-const hamburger = document.createElement('div');
-hamburger.classList.add('hamburger');
-hamburger.innerHTML = '<span></span><span></span><span></span>';
-navbar.appendChild(hamburger);
-
-hamburger.addEventListener('click', () => {
-  navbar.classList.toggle('active');
-});
-
