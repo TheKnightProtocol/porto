@@ -1,6 +1,23 @@
 /* ... (keep everything from before) ... */
 
 /* Timeline */
+
+/* Language Dropdown */
+.lang-dropdown {
+  background: #111119;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 15px;
+}
+.lang-dropdown:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
 .timeline {
   position: relative;
   margin: 40px 0;
