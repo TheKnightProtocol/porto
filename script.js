@@ -1,61 +1,71 @@
-/* ... (keep everything from before) ... */
+// Typewriter Effect
+document.addEventListener("DOMContentLoaded", () => {
+  const glowText = document.querySelector(".glow-text");
+  const text = glowText.textContent;
+  glowText.textContent = "";
 
-/* Timeline */
-.timeline {
-  position: relative;
-  margin: 40px 0;
-  padding-left: 40px;
-  border-left: 3px solid var(--accent);
-}
+  let i = 0;
+  function typeWriter() {
+    if (i < text.length) {
+      glowText.textContent += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 120);
+    }
+  }
+  typeWriter();
+});
 
-.timeline-item {
-  position: relative;
-  margin-bottom: 40px;
-}
+// Particle background effect
+const canvas = document.getElementById("particle-canvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-.timeline-dot {
-  position: absolute;
-  left: -11px;
-  top: 5px;
-  width: 18px;
-  height: 18px;
-  background: var(--accent);
-  border-radius: 50%;
-  box-shadow: 0 0 15px var(--accent);
-  animation: pulseDot 2s infinite;
-}
-
-.timeline-content {
-  background: #111119;
-  border: 1px solid var(--accent);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(0,229,255,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+let particles = [];
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2 + 1,
+    dx: (Math.random() - 0.5) * 1,
+    dy: (Math.random() - 0.5) * 1,
+  });
 }
 
-.timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px var(--accent);
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue("--accent");
+  particles.forEach((p) => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+// Theme color switcher with localStorage
+const root = document.documentElement;
+const savedColor = localStorage.getItem("themeColor");
+if (savedColor) {
+  root.style.setProperty("--accent", savedColor);
 }
 
-.timeline-content h3 {
-  margin-top: 0;
-  color: var(--accent);
-  font-family: 'Orbitron', sans-serif;
-}
-
-.timeline-content ul {
-  margin-top: 10px;
-  padding-left: 20px;
-}
-.timeline-content ul li {
-  margin-bottom: 8px;
-  color: var(--text);
-}
-
-@keyframes pulseDot {
-  0% { box-shadow: 0 0 5px var(--accent); }
-  50% { box-shadow: 0 0 20px var(--accent); }
-  100% { box-shadow: 0 0 5px var(--accent); }
-}
+document.querySelectorAll(".color-option").forEach(option => {
+  option.addEventListener("click", () => {
+    const newColor = option.getAttribute("data-color");
+    root.style.setProperty("--accent", newColor);
+    localStorage.setItem("themeColor", newColor);
+  });
+});
